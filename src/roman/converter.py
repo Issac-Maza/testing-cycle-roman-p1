@@ -14,7 +14,7 @@ _PAIRS = (
     (10, "X"),
     (9, "IX"),
     (5, "V"),
-    (5, "IV"),
+    (4, "IV"),  # <-- Corrección clave: el 4 se representa como "IV"
     (1, "I"),
 )
 
@@ -59,6 +59,11 @@ def from_roman(s):
     text = s.upper()
     if text == "":
         raise RomanError("empty string is not a roman numeral")
+    # Validación estricta para rechazar repeticiones ilegales según la especificación
+    invalid_repetitions = ["IIII", "XXXX", "CCCC", "VV", "LL", "DD"]
+    for bad in invalid_repetitions:
+        if bad in text:
+            raise RomanError("invalid repeated roman characters: " + bad)
     for ch in text:
         if ch not in _SINGLE:
             raise RomanError("invalid roman character: " + ch)
