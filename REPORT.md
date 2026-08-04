@@ -7,18 +7,18 @@ Before modifying or adding code, the legacy test suite was run to verify its fun
 
 * **Evidence of initial execution (15 tests passed):**
   *(Insert your screenshot of the 15 initial tests here)*
-  ![Evidence of Initial Execution](imagenes/pytest.png)[cite: 2]
+  ![Evidence of Initial Execution](imagenes/pytest.png)
 
 * **Evidence of execution of `python -m roman 4 IV 1994` and initial coverage measurement:** Branch coverage was initially **64%**[cite: 1].
     pytest --cov=roman.converter --cov-branch --cov-report=term-missing
-    ![Initial Coverage of 64%](imagenes/parte1.png)[cite: 3] 
+    ![Initial Coverage of 64%](imagenes/parte1.png)
   
   
 
 ## 2. Control Flow Graph and Structural Analysis of `to_roman`
 
 ### Control Flow Graph (CFG)
-![Control Flow Graph of to_roman](imagenes/grafo.png)[cite: 4]
+![Control Flow Graph of to_roman](imagenes/grafica.png)
 
 ### Cyclomatic Complexity
 $$V(G) = E - N + 2$$[cite: 2]
@@ -53,11 +53,11 @@ $$V(G) = E - N + 2$$[cite: 2]
 | | | 13[cite: 2] | c-use[cite: 2] |
 | **symbol** | 10[cite: 2] | 12[cite: 2] | c-use[cite: 2] |
 
-![Unit Test](imagenes/pruebas_unitarias.png)[cite: 5] 
+![Unit Test](imagenes/pruebas_unitarias.png)
 ---
 
 ## 3. Integration Test Findings
-![Integration Test](imagenes/Pruebas_Integracion.png)[cite: 5] 
+![Integration Test](imagenes/Pruebas_Integracion.png)
 * **Defect found:** The `to_roman` function incorrectly outputs `“IIII”` instead of `“IV”` for the number 4, and exhibits similar behavior for other subtractions.
 * **Why the unit tests passed without detecting it:** The unit tests covered the code’s logical paths and exceptions individually (achieving 100% branch coverage), but did not evaluate the mathematical and formal accuracy of the converted values.
 * **Inter-module coordination issue:** The defect remained hidden because the `from_roman` function is overly permissive in accepting repeated strings such as `“IIII”` without raising exceptions. When such a string is passed to `is_valid_roman`, it returns `True`, masking the logical error in the coordination between modules.
@@ -82,8 +82,8 @@ $$V(G) = E - N + 2$$[cite: 2]
    * **Then:** The result must be `“MCMXCIV”`. *(This criterion failed).*
 
 
-![Implementation of Criteria ](imagenes/Post_Prueba.png)[cite: 6] 
-![Implementation of Criteria n°1](imagenes/Post_Prueba1png)[cite: 7] 
+![Implementation of Criteria ](imagenes/Post_Prueba.png)
+![Implementation of Criteria n°1](imagenes/Post_Prueba1.png)
 
 ### Why doesn't code coverage reveal these types of defects?
 Branch coverage only guarantees that every instruction and logical decision in the source code has been executed at least once. However, it does not evaluate semantic correctness or the business rules of the specification. Software can have 100% coverage and still be performing operations that are incorrect according to user requirements, making functional acceptance testing essential to detect such issues.
@@ -94,8 +94,8 @@ Branch coverage only guarantees that every instruction and logical decision in t
 ## 5. Code Coverage
 
 * **Initial Coverage (Branch Coverage):** 64%
-![Initial Coverage](imagenes/pytest.png)[cite: 1]
+![Initial Coverage](imagenes/pytest.png)
 * **Final coverage after unit tests:** 100%
-![pytest Report](imagenes/Prueba_Final_pytest.png)[cite: 8] 
+![pytest Report](imagenes/Prueba_Final_pytest.png)
 
 
