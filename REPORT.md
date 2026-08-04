@@ -21,37 +21,37 @@ Before modifying or adding code, the legacy test suite was run to verify its fun
 ![Control Flow Graph of to_roman](imagenes/grafica.png)
 
 ### Cyclomatic Complexity
-$$V(G) = E - N + 2$$[cite: 2]
-* **$E$ (Edges):** 21[cite: 2]
-* **$N$ (Nodes):** 16[cite: 2]
-* **$V(G)$:** $21 - 16 + 2 = 7$[cite: 2]
+$$V(G) = E - N + 2$$
+* **$E$ (Edges):** 21
+* **$N$ (Nodes):** 16
+* **$V(G)$:** $21 - 16 + 2 = 7$
 
 ### Set of Linearly Independent Paths
-* **Path 1:** src → 1 → 3 → Sri[cite: 2]
-* **Path 2:** src → 1 → 2 → 3 → Sri[cite: 2]
-* **Path 3:** src → 1 → 2 → 4 → 5 → Sri[cite: 2]
-* **Path 4:** src → 1 → 2 → 4 → 6 → 7 → Sri[cite: 2]
-* **Path 5:** src → 1 → 2 → 4 → 6 → 8 → 9 → 10 → 14 → Sri[cite: 2]
-* **Path 6:** src → 1 → 2 → 4 → 6 → 8 → 9 → 10 → 11 → 10 → 14 → Sri[cite: 2]
-* **Path 7:** src → 1 → 2 → 4 → 6 → 8 → 9 → 10 → 11 → 12 → 13 → 11 → 10 → 14 → Sri[cite: 2]
+* **Path 1:** src → 1 → 3 → Sri
+* **Path 2:** src → 1 → 2 → 3 → Sri
+* **Path 3:** src → 1 → 2 → 4 → 5 → Sri
+* **Path 4:** src → 1 → 2 → 4 → 6 → 7 → Sri
+* **Path 5:** src → 1 → 2 → 4 → 6 → 8 → 9 → 10 → 14 → Sri
+* **Path 6:** src → 1 → 2 → 4 → 6 → 8 → 9 → 10 → 11 → 10 → 14 → Sri
+* **Path 7:** src → 1 → 2 → 4 → 6 → 8 → 9 → 10 → 11 → 12 → 13 → 11 → 10 → 14 → Sri
 
 ### Definition-Use (Def-Use) Table
 | Variable | Def. Node (Creation) | Use Node | Type of Use |
 | :--- | :---: | :---: | :---: |
-| **n** | Input (Line 40)[cite: 2] | 1[cite: 2] | p-use[cite: 2] |
-| | | 2[cite: 2] | p-use[cite: 2] |
-| | | 4[cite: 2] | p-use[cite: 2] |
-| | | 6[cite: 2] | p-use[cite: 2] |
-| | | 9[cite: 2] | c-use[cite: 2] |
-| **out** | 8[cite: 2] | 12[cite: 2] | c-use[cite: 2] |
-| | | 14[cite: 2] | c-use[cite: 2] |
-| **remaining** | 9[cite: 2] | 11[cite: 2] | p-use[cite: 2] |
-| | | 13[cite: 2] | c-use[cite: 2] |
-| | 13 (Redefinición)[cite: 2] | 11[cite: 2] | p-use[cite: 2] |
-| | | 13[cite: 2] | c-use[cite: 2] |
-| **value** | 10[cite: 2] | 11[cite: 2] | p-use[cite: 2] |
-| | | 13[cite: 2] | c-use[cite: 2] |
-| **symbol** | 10[cite: 2] | 12[cite: 2] | c-use[cite: 2] |
+| **n** | Input (Line 40) | 1 | p-use |
+| | | 2 | p-use |
+| | | 4 | p-use |
+| | | 6 | p-use |
+| | | 9 | c-use |
+| **out** | 8 | 12 | c-use |
+| | | 14 | c-use |
+| **remaining** | 9 | 11 | p-use |
+| | | 13 | c-use |
+| | 13 (Redefinición) | 11 | p-use |
+| | | 13 | c-use |
+| **value** | 10 | 11 | p-use |
+| | | 13 | c-use |
+| **symbol** | 10 | 12 | c-use |
 
 ![Unit Test](imagenes/pruebas_unitarias.png)
 ---
